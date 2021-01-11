@@ -1,3 +1,10 @@
+;;; init-modeline.el --- core modeline  -*- lexical-binding: t -*-
+
+;;; Commentary:
+;;
+
+;;; Code:
+
 (setq-default mode-line-format
   (list
     '(:eval (propertize "%b " 'face nil
@@ -17,4 +24,8 @@
     "]"
     (propertize "%M" 'face nil)
     ))
+
+
 (provide 'init-modeline)
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; init-modeline.el ends here

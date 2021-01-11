@@ -64,9 +64,12 @@
     (go-update-tools))
 
   ;; Misc
-  (use-package go-dlv)
-  (use-package go-fill-struct)
-  (use-package go-impl)
+  (use-package go-dlv
+    :ensure t)
+  (use-package go-fill-struct
+    :ensure t)
+  (use-package go-impl
+    :ensure t)
 
   ;; Install: See https://github.com/golangci/golangci-lint#install
   (use-package flycheck-golangci-lint
