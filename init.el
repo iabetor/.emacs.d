@@ -28,7 +28,7 @@
 (require 'package)
 (setq package-archives
       '(("gnu"    . "http://mirrors.cloud.tencent.com/elpa/gnu/")
-        ("melpa"  . "http://mirrors.163.com/elpa/melpa/")
+        ("melpa"  . "http://mirrors.cloud.tencent.com/elpa/melpa/")
         ("nongnu" . "http://mirrors.cloud.tencent.com/elpa/nongnu/")))
 
 (package-initialize)
