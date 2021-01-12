@@ -38,6 +38,11 @@
 
 (fset 'yes-or-no-p 'y-or-n-p);以 y/n代表 yes/no     
 
+;; 记住上次打开的位置
+(require 'saveplace)
+(setq-default save-place t)
+(save-place-mode 1)
+
 (provide 'init-basic)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; init-basic.el ends here
