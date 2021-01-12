@@ -9,6 +9,7 @@
 
 ;; Golang
 (use-package go-mode
+  :ensure t
   :functions (go-packages-gopkgs go-update-tools)
   :bind (:map go-mode-map
          ("C-c R" . go-remove-unused-imports)
@@ -73,6 +74,7 @@
 
   ;; Install: See https://github.com/golangci/golangci-lint#install
   (use-package flycheck-golangci-lint
+    :ensure t
     :if (executable-find "golangci-lint")
     :after flycheck
     :defines flycheck-disabled-checkers
@@ -87,16 +89,19 @@
                        (flycheck-golangci-lint-setup))))
 
   (use-package go-tag
+    :ensure t
     :bind (:map go-mode-map
            ("C-c t t" . go-tag-add)
            ("C-c t T" . go-tag-remove))
     :init (setq go-tag-args (list "-transform" "camelcase")))
 
   (use-package go-gen-test
+    :ensure t
     :bind (:map go-mode-map
            ("C-c t g" . go-gen-test-dwim)))
 
   (use-package gotest
+    :ensure t
     :bind (:map go-mode-map
            ("C-c t a" . go-test-current-project)
            ("C-c t m" . go-test-current-file)
@@ -105,6 +110,7 @@
 
 ;; Local Golang playground for short snippets
 (use-package go-playground
+  :ensure t
   :diminish
   :commands (go-playground-mode))
 

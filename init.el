@@ -54,7 +54,7 @@
         auto-package-update-hide-results t)
   (defalias 'upgrade-packages #'auto-package-update-now))  
 
-(setq debug-on-error t)
+;;(setq debug-on-error t)
 (setq-default lexical-binding t)
 
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
@@ -62,8 +62,9 @@
 
 (require 'init-basic)
 (require 'init-dired)
-(require 'init-modeline)
+;;(require 'init-modeline)
 (require 'init-ivy)
+;;(require 'init-kill-ring)
 
 (require 'init-go)
 
