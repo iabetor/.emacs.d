@@ -6,7 +6,12 @@
 ;;; Code:
 
 (setq-default mode-line-format
-  (list
+  (list "-"
+    'mode-line-mule-info
+    'mode-line-modified
+    'mode-line-frame-identification
+    ":"
+    'default-directory
     '(:eval (propertize "%b " 'face nil
         'help-echo (buffer-file-name)))
     " ["
