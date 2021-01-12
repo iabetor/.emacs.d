@@ -38,8 +38,6 @@
 
 (fset 'yes-or-no-p 'y-or-n-p);以 y/n代表 yes/no     
 
-;;(kill-new "")
-
 (provide 'init-basic)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; init-basic.el ends here
