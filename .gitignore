@@ -6,7 +6,6 @@
 *.sqlite
 *bak/
 .DS_Store
-/custom.el
 .cache/
 .cask/
 .dap-*
