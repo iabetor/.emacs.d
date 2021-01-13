@@ -9,6 +9,10 @@
 
 ;;(setq enable-recursive-minibuffers t)
 
+;; No backup files
+(setq make-backup-files nil
+      auto-save-default nil)
+
 (setq-default major-mode 'text-mode
   fill-column 80
   tab-width 4
