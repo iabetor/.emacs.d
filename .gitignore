@@ -4,3 +4,4 @@ var/
 places
 recentf
 custom.el
+.lsp-session*

@@ -27,9 +27,8 @@
 
 (require 'package)
 (setq package-archives
-      '(("gnu"    . "http://mirrors.cloud.tencent.com/elpa/gnu/")
-        ("melpa"  . "http://mirrors.cloud.tencent.com/elpa/melpa/")
-        ("nongnu" . "http://mirrors.cloud.tencent.com/elpa/nongnu/")))
+      '(("gnu"    . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
+        ("melpa"  . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")))
 
 (package-initialize)
 
@@ -62,9 +61,10 @@
 
 (require 'init-basic)
 (require 'init-dired)
-;;(require 'init-modeline)
+(require 'init-modeline)
 (require 'init-ivy)
 ;;(require 'init-kill-ring)
+(require 'init-lsp)
 
 (require 'init-go)
 

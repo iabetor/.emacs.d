@@ -47,6 +47,16 @@
 (setq-default save-place t)
 (save-place-mode 1)
 
+;; 隐藏菜单栏 工具栏 滚动条
+(menu-bar-mode 0)
+(tool-bar-mode 0)
+(require 'scroll-bar)
+(scroll-bar-mode 0)
+
+;; 关闭出错时的提示声
+(setq visible-bell t)
+(setq  ring-bell-function 'ignore)
+
 ;;Display Keybind
 (use-package which-key
   :ensure t
