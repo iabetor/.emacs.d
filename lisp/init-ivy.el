@@ -38,7 +38,9 @@
 
 (use-package swiper
   :ensure t
-  :bind (("C-s" . swiper))
+  :bind (("C-s" . swiper)
+         ;;("C-r" . swiper-backward)
+         )
   )
 
 (provide 'init-ivy)
