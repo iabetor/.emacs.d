@@ -18,6 +18,23 @@
   (setq lsp-auto-configure t ;; 尝试自动配置自己
         lsp-auto-guess-root t ;; 尝试自动猜测项目根文件夹
         lsp-idle-delay 0.500) ;; 多少时间idle后向服务器刷新信息
+
+  (setq read-process-output-max (* 1024 1024)) ;; 1MB
+
+  (setq lsp-keymap-prefix "C-c l"
+        lsp-keep-workspace-alive nil
+        lsp-signature-auto-activate nil
+        lsp-modeline-code-actions-enable nil
+        lsp-modeline-diagnostics-enable nil
+        lsp-modeline-workspace-status-enable nil
+
+        lsp-enable-file-watchers nil
+        lsp-enable-folding nil
+        lsp-enable-symbol-highlighting nil
+        lsp-enable-text-document-color nil
+
+        lsp-enable-indentation nil
+        lsp-enable-on-type-formatting nil)  
   )
 
 ;; Set up before-save hooks to format buffer and add/delete imports.
