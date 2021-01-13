@@ -7,8 +7,6 @@
 
 ;;; Code:
 
-;;(setq enable-recursive-minibuffers t)
-
 ;; No backup files
 (setq make-backup-files nil
       auto-save-default nil)
