@@ -68,6 +68,9 @@
   :ensure t
   :config (autopair-global-mode))
 
+;; autp refresh buffer
+(global-auto-revert-mode t)
+
 (provide 'init-basic)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; init-basic.el ends here

@@ -6,3 +6,4 @@
 
 * 使用use package管理包
 * 没有使用swiper和counsel，感觉不是很喜欢
+* 在emacs27上版本会报package-cl的错误，虽然不影响功能，但是很不爽，这个不会报此错误
