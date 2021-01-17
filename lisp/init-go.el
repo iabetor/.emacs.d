@@ -10,19 +10,15 @@
 ;; Golang
 (use-package go-mode
   :ensure t
-  :functions (go-packages-gopkgs go-update-tools)
-  :bind (:map go-mode-map
-         ("C-c R" . go-remove-unused-imports)
-         ("<f1>" . godoc-at-point))
-  )
-
- ;; Misc
-(use-package go-dlv
-  :ensure t)
-(use-package go-fill-struct
-  :ensure t)
-(use-package go-impl
-  :ensure t)
+  :bind (
+         ;; If you want to switch existing go-mode bindings to use lsp-mode/gopls instead
+         ;; uncomment the following lines
+         ;; ("C-c C-j" . lsp-find-definition)
+         ;; ("C-c C-d" . lsp-describe-thing-at-point)
+         )
+  :hook ((go-mode . lsp-deferred)
+         (before-save . lsp-format-buffer)
+         (before-save . lsp-organize-imports)))
 
  ;; Install: See https://github.com/golangci/golangci-lint#install
 (use-package flycheck-golangci-lint
@@ -58,13 +54,10 @@
          ("C-c t a" . go-test-current-project)
          ("C-c t m" . go-test-current-file)
          ("C-c t ." . go-test-current-test)
+         ("C-c t b" . go-test-current-benchmark)
          ("C-c t x" . go-run)))
 
-;; Local Golang playground for short snippets
-(use-package go-playground
-  :ensure t
-  :diminish
-  :commands (go-playground-mode))
+
 
 (provide 'init-go)
 

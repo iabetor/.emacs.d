@@ -9,6 +9,9 @@
   :ensure t
   ;; 延时加载：仅当 (lsp) 函数被调用时再 (require)
   :commands (lsp lsp-deferred)
+  :config (progn
+    ;; use flycheck, not flymake
+    (setq lsp-prefer-flymake nil))
   ;; 在哪些语言 major mode 下启用 LSP
   :hook (((go-mode
            ;;php-mode
@@ -51,6 +54,11 @@
   :after (lsp-mode)
   ;; 延时加载
   :commands (lsp-ui-mode)
+  :config (progn
+            ;; disable inline documentation
+            (setq lsp-ui-sideline-enable nil)
+            ;; disable showing docs on hover at the top of the window
+            (setq lsp-ui-doc-enable nil))
   :bind
   (:map lsp-ui-mode-map
         ;; 查询符号定义：使用 LSP 来查询。通常是 M-.
@@ -71,10 +79,21 @@
 ;; Company mode is a standard completion package that works well with lsp-mode.
 (use-package company
   :ensure t
-  :config
-  ;; Optionally enable completion-as-you-type behavior.
-  (setq company-idle-delay 0)
-  (setq company-minimum-prefix-length 1))
+  :config (progn
+            ;; don't add any dely before trying to complete thing being typed
+            ;; the call/response to gopls is asynchronous so this should have little
+            ;; to no affect on edit latency
+            (setq company-idle-delay 0)
+            ;; start completing after a single character instead of 3
+            (setq company-minimum-prefix-length 1)
+            ;; align fields in completions
+            (setq company-tooltip-align-annotations t)
+            )
+  )
+
+(use-package company-lsp
+  :ensure t
+  :commands company-lsp)
 
 ;; Optional - provides snippet support.
 (use-package yasnippet

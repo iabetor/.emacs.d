@@ -48,6 +48,7 @@
 
 ;; Auto update packages
 (use-package auto-package-update
+  :ensure t
   :init
   (setq auto-package-update-delete-old-versions t
         auto-package-update-hide-results t)
@@ -66,6 +67,7 @@
 (require 'init-projectile)
 ;;(require 'init-kill-ring)
 (require 'init-lsp)
+(require 'init-flycheck)
 
 (require 'init-go)
 
