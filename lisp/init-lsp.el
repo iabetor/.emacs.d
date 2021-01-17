@@ -96,8 +96,20 @@
             (setq company-minimum-prefix-length 1)
             ;; align fields in completions
             (setq company-tooltip-align-annotations t)
+            (setq company-backends
+              '((company-files
+              company-yasnippet
+              company-keywords
+              company-capf
+              ) 
+              (company-abbrev company-dabbrev))
             )
+        )
   )
+
+(add-hook 'emacs-lisp-mode-hook (lambda ()
+                                  (add-to-list  (make-local-variable 'company-backends)
+                                                '(company-elisp))))
 
 (use-package company-lsp
   :ensure t

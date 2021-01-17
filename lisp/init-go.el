@@ -36,26 +36,30 @@
                                                         go-errcheck))
                      (flycheck-golangci-lint-setup))))
 
- (use-package go-tag
+(use-package go-tag
   :ensure t
   :bind (:map go-mode-map
          ("C-c t t" . go-tag-add)
          ("C-c t T" . go-tag-remove))
   :init (setq go-tag-args (list "-transform" "camelcase")))
 
- (use-package go-gen-test
+(use-package go-gen-test
   :ensure t
   :bind (:map go-mode-map
          ("C-c t g" . go-gen-test-dwim)))
 
- (use-package gotest
+(use-package gotest
   :ensure t
+  :after go-mode
   :bind (:map go-mode-map
          ("C-c t a" . go-test-current-project)
          ("C-c t m" . go-test-current-file)
          ("C-c t ." . go-test-current-test)
          ("C-c t b" . go-test-current-benchmark)
-         ("C-c t x" . go-run)))
+         ("C-c t x" . go-run))
+  :config
+  (setq go-test-verbose t)       
+)
 
 
 
