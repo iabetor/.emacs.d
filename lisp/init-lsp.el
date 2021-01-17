@@ -11,7 +11,10 @@
   :commands (lsp lsp-deferred)
   :config (progn
     ;; use flycheck, not flymake
-    (setq lsp-prefer-flymake nil))
+    (setq lsp-prefer-flymake nil)
+    (advice-add 'lsp--suggest-project-root
+                        :around (lambda (oldfun &rest r)
+                                  (custom/lsp-default-dir (apply oldfun r)))))
   ;; 在哪些语言 major mode 下启用 LSP
   :hook (((go-mode
            ;;php-mode
@@ -39,7 +42,12 @@
         lsp-enable-indentation nil
         lsp-enable-on-type-formatting nil)  
   )
-
+(defun custom/lsp-default-dir (suggestion)
+  (if (eq major-mode 'go-mode) (custom/find-go-dir default-directory suggestion) suggestion))
+(defun custom/find-go-dir (dir limit) 
+  (if (or (string-empty-p dir) (equal dir limit)) limit
+    (if (member "go.mod" (directory-files dir)) dir
+      (custom/find-go-dir (file-name-directory dir) limit))))
 ;; Set up before-save hooks to format buffer and add/delete imports.
 ;; Make sure you don't have other gofmt/goimports hooks enabled.
 (defun lsp-go-install-save-hooks ()
@@ -54,11 +62,11 @@
   :after (lsp-mode)
   ;; 延时加载
   :commands (lsp-ui-mode)
-  :config (progn
-            ;; disable inline documentation
-            (setq lsp-ui-sideline-enable nil)
-            ;; disable showing docs on hover at the top of the window
-            (setq lsp-ui-doc-enable nil))
+  ;;:config (progn
+  ;;          ;; disable inline documentation
+  ;;          (setq lsp-ui-sideline-enable nil)
+  ;;          ;; disable showing docs on hover at the top of the window
+  ;;          (setq lsp-ui-doc-enable nil))
   :bind
   (:map lsp-ui-mode-map
         ;; 查询符号定义：使用 LSP 来查询。通常是 M-.
