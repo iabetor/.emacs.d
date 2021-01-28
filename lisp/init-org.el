@@ -15,9 +15,23 @@
          ("C-c b" . org-switchb))
   :config
   (setq truncate-lines nil
+        org-log-done 'time
         org-todo-keywords
-        '((sequence "TODO" "FEEDBACK" "VERIFY" "|" "DONE" "CANCEL")))
-  )
+        '((sequence "TODO(t)" "DOING(i)" "HANGUP(h)" "|" "DONE(d)" "CANCEL(c)")
+          (sequence "⚑(T)" "🏴(I)" "❓(H)" "|" "✔(D)" "✘(C)"))
+        org-todo-keyword-faces '(("HANGUP" . warning)
+                                 ("❓" . warning))
+        org-priority-faces '((?A . error)
+                             (?B . warning)
+                             (?C . success))
+        )
+)
+
+(use-package org-superstar
+      :ensure t
+      :after (org)
+      :hook (org-mode . org-superstar-mode)
+      :init (setq org-superstar-headline-bullets-list '("☰" "☷" "☯" "☭")))
 
 
 (provide 'init-org)
