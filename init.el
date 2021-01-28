@@ -63,6 +63,7 @@
 (require 'init-basic)
 (require 'init-dired)
 (require 'init-modeline)
+(require 'init-org)
 (require 'init-ivy)
 (require 'init-projectile)
 ;;(require 'init-kill-ring)
