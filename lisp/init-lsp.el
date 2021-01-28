@@ -81,7 +81,7 @@
   ;; lsp-ui 有相当细致的功能开关。具体参考：
   ;; https://github.com/emacs-lsp/lsp-mode/blob/master/docs/tutorials/how-to-turn-off.md
   (setq lsp-enable-symbol-highlighting t
-        lsp-ui-doc-enable t
+        lsp-ui-doc-enable nil
         lsp-lens-enable t))
 
 ;; Company mode is a standard completion package that works well with lsp-mode.
