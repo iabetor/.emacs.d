@@ -9,8 +9,8 @@
 
 (use-package org
   :ensure nil
-  :init
-  (add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
+  :mode ("\\.org\\'" . org-mode)
+  :hook (org-mode . visual-line-mode)
   :bind (("C-c a" . org-agenda)
          ("C-c b" . org-switchb))
   :config
@@ -25,6 +25,9 @@
                              (?B . warning)
                              (?C . success))
         )
+  :custom
+  (org-directory "~/.org/")
+  (org-default-notes-file (expand-file-name "notes.org" org-directory))
 )
 
 (use-package org-superstar
@@ -33,6 +36,18 @@
       :hook (org-mode . org-superstar-mode)
       :init (setq org-superstar-headline-bullets-list '("☰" "☷" "☯" "☭")))
 
+(use-package org-agenda
+  :ensure nil
+  :after org
+  :hook (org-agenda-finalize . org-agenda-to-appt)
+  :config
+  ;; update appt list every 5 minutes
+  (run-at-time t 300 #'org-agenda-to-appt)
+  (advice-add #'org-agenda-to-appt :around #'my/suppress-message)
+  :custom
+  (org-agenda-files (list (expand-file-name "tasks.org" org-directory)))
+  (org-agenda-diary-file (expand-file-name "diary.org" org-directory))
+)
 
 (provide 'init-org)
 

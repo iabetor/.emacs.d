@@ -22,7 +22,7 @@
            ) . lsp-deferred))
   :init ;; 在 (reuqire) 之前执行
   (setq lsp-auto-configure t ;; 尝试自动配置自己
-        lsp-auto-guess-root t ;; 尝试自动猜测项目根文件夹
+        lsp-auto-guess-root nil ;; 尝试自动猜测项目根文件夹
         lsp-idle-delay 0.500) ;; 多少时间idle后向服务器刷新信息
 
   (setq read-process-output-max (* 1024 1024)) ;; 1MB

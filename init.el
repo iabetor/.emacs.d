@@ -27,8 +27,8 @@
 
 (require 'package)
 (setq package-archives
-      '(("gnu"    . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
-        ("melpa"  . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")))
+      '(("gnu"    . "http://elpa.emacs-china.org/gnu/")
+        ("melpa"  . "http://elpa.emacs-china.org/melpa/")))
 
 (package-initialize)
 
@@ -66,6 +66,7 @@
 (require 'init-org)
 (require 'init-ivy)
 (require 'init-projectile)
+(require 'init-git)
 ;;(require 'init-kill-ring)
 (require 'init-lsp)
 (require 'init-flycheck)
