@@ -37,6 +37,7 @@
          ("C-c R" . go-remove-unused-imports)
          ("<f1>" . godoc-at-point))
   :config
+  (setq lsp-gopls-codelens nil)
   ;; Env vars
   (with-eval-after-load 'exec-path-from-shell
     (exec-path-from-shell-copy-envs '("GOPATH" "GO111MODULE" "GOPROXY")))
