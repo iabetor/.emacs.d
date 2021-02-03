@@ -28,7 +28,9 @@
 (require 'init-edit)
 (require 'init-ui)
 
+(require 'init-lsp)
 
+(require 'init-go)
 
 (when (file-exists-p custom-file)
   (load custom-file))

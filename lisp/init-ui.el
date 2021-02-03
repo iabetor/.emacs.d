@@ -6,17 +6,23 @@
 ;;; Code:
 
 ;; 全局显示行
-(global-display-line-numbers-mode)
+(use-package display-line-numbers
+  :ensure nil
+  :hook(after-init . global-display-line-numbers-mode))
 
 ;; 高亮显示当前行
-(global-hl-line-mode t)
-;; 当前行背景
-(set-face-background 'hl-line "#BEBEBE")
-;; 当前行前景
-(set-face-foreground 'hl-line "#000000")
+(use-package hl-line
+  :ensure nil
+  :hook (after-init . global-hl-line-mode)
+  :config
+  ;; 当前行背景
+  (set-face-background hl-line-face "#BEBEBE")
+  ;; 当前行前景
+  (set-face-foreground hl-line-face "#000000"))
+
 
 ;; 选中区域背景
-(set-face-background 'region "#F2939F")
+(set-face-background 'region "#BEBEB")
 
 (provide 'init-ui)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
