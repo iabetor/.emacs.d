@@ -81,6 +81,15 @@
        ;; Equals to `C-u M-x lsp-install-server'
        (lsp-install-server t)))
 
+;; optionally
+(use-package lsp-ui 
+  :commands lsp-ui-mode)
+
+(use-package company
+  :config
+  ;; Optionally enable completion-as-you-type behavior.
+  (setq company-idle-delay 0)
+  (setq company-minimum-prefix-length 1))
 
 
 (provide 'init-lsp)

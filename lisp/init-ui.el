@@ -14,6 +14,7 @@
 (use-package hl-line
   :ensure nil
   :hook (after-init . global-hl-line-mode)
+  ;;:custom-face (hl-line-face ((t (:inherit default :background nil :foreground nil))))
   :config
   ;; 当前行背景
   (set-face-background hl-line-face "#BEBEBE")
