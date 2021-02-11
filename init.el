@@ -27,6 +27,11 @@
 (require 'init-basic)
 (require 'init-edit)
 (require 'init-ui)
+(require 'init-ivy)
+(require 'init-modeline)
+(require 'init-projectile)
+
+(require 'init-elisp)
 
 (require 'init-lsp)
 

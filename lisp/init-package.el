@@ -14,12 +14,16 @@
 ;; Initialize packages
 (unless (bound-and-true-p package--initialized) ;; To avoid warnings in 27
   (setq package-enable-at-startup nil)          ;; To prevent initializing twice
-    (package-initialize)) ;; 刷新软件源索引
+  (package-initialize));; 刷新软件源索引
 
 ;; Setup use-package
 (unless (package-installed-p 'use-package)  ;; 如果更改了use-package就在这里加个注释执行一下，不然不会加载package
   (package-refresh-contents)
   (package-install 'use-package))
+
+(use-package doom-themes)
+
+(load-theme 'doom-Iosvkem t)
 
 (eval-and-compile 
     (setq use-package-always-ensure t) ;; 不用每个包都手动添加:ensure t关键字 

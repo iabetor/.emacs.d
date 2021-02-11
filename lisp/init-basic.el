@@ -28,6 +28,7 @@
 
 ;;Auto Pair Bracket
 (use-package autopair
+  :defer nil
   :config (autopair-global-mode))
 
 ;; auto refresh buffer 文件被外部修改时可以自动刷新到buffer

@@ -17,7 +17,7 @@
   ;;:custom-face (hl-line-face ((t (:inherit default :background nil :foreground nil))))
   :config
   ;; 当前行背景
-  (set-face-background hl-line-face "#BEBEBE")
+  (set-face-background hl-line-face "#FF0000")
   ;; 当前行前景
   (set-face-foreground hl-line-face "#000000"))
 
